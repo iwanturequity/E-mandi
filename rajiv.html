@@ -85,11 +85,20 @@
                 <label for="role">Role:</label>
                 <select id="role" name="role" required>
                     <option value="select">Select-option</option>
-                    <option value="student">Farmer</option>
+                    <option value="Farmer">Farmer</option>
                     <option value="whole seller">whole seller</option>
                     <option value="admin">Admin</option>
                     <option value=".Computer professionals">Computer professionals</option>
                 </select>
+            </div>
+            <div class="form-group">
+                <label for="captcha-input">Captcha:</label>
+                <div class="captcha-box">
+                    <span id="generated-captcha" class="captcha"></span>
+                    <button type="button" onclick="generateCaptcha()">↻</button>
+                </div>
+                <input type="text" id="captcha-input" placeholder="Enter CAPTCHA" required>
+                <small id="captcha-message" class="captcha-message"></small>
             </div>
             <div class="form-group">
                 <button type="submit">Register</button>

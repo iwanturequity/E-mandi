@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer - Upload Vegetables</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fdfbfb, #ebedee); /* Softer background */
+    margin: 0;
+    padding: 20px;
+}
+
+/* Container */
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 900px;
+    margin: auto;
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: scale(1.02); /* Slight hover effect */
+}
+
+/* Headers */
+h2, h3 {
+    text-align: center;
+    color: #56ab2f; /* e-MANDI green color */
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.form-group input, select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, select:focus {
+    border-color: #56ab2f; /* Green border on focus */
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #56ab2f;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #3e8d22; /* Darker green on hover */
+}
+
+/* Vegetable Card Container */
+.veg-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+/* Individual Vegetable Cards */
+.veg-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 6px solid #56ab2f; /* Green accent on the left side */
+}
+
+.veg-card:hover {
+    transform: translateY(-5px); /* Lift the card on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Vegetable Card Content */
+.veg-card h4 {
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.veg-card p {
+    margin: 6px 0;
+    color: #777;
+    font-size: 16px;
+}
+
+/* Existing and Uploaded Vegetables Section Headers */
+h3 {
+    margin-top: 40px;
+    font-size: 24px;
+    color: #56ab2f;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .form-group input, select {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .veg-card {
+        padding: 15px;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 15px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Farmer's Dashboard</h2>
+
+        <!-- Section to display existing vegetables -->
+        <h3>Existing Vegetables in Market</h3>
+        <div id="existing-veg-list" class="veg-card-container"></div>
+
+        <!-- Section to upload fresh vegetables -->
+        <h3>Upload Fresh Vegetables</h3>
+        <form id="upload-form">
+            <div class="form-group">
+                <label for="veg-name">Vegetable Name:</label>
+                <input type="text" id="veg-name" name="veg-name" required>
+            </div>
+            <div class="form-group">
+                <label for="veg-price">Price (per kg):</label>
+                <input type="number" id="veg-price" name="veg-price" required>
+            </div>
+            <div class="form-group">
+                <label for="veg-quantity">Quantity (kg):</label>
+                <input type="number" id="veg-quantity" name="veg-quantity" required>
+            </div>
+            <div class="form-group">
+                <label for="veg-freshness">Freshness Level:</label>
+                <select id="veg-freshness" name="veg-freshness">
+                    <option value="Fresh">Fresh</option>
+                    <option value="Moderately Fresh">Moderately Fresh</option>
+                    <option value="Stale">Stale</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="veg-size">Size:</label>
+                <select id="veg-size" name="veg-size">
+                    <option value="Small">Small</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Large">Large</option>
+                </select>
+            </div>
+            <button type="submit">Upload Vegetable</button>
+        </form>
+
+        <h3>Previously Uploaded Vegetables</h3>
+        <div id="uploaded-veg-list" class="veg-card-container"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
