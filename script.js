@@ -17,15 +17,15 @@ document.addEventListener('DOMContentLoaded', function() {
         captchaExpirationTimeout = setTimeout(() => {
             alert("CAPTCHA has expired. Please refresh.");
             generateCaptcha(); // Auto-refresh CAPTCHA after expiration
-        }, 2 * 60 * 1000); // 2 minutes expiration
+        }, 2 * 60 * 1000); // 2 minutes expiration ke liye ye 
     }
 
-    // Call the generateCaptcha function when the page loads
+    // Call the generateCaptcha function when the page loading 
     generateCaptcha();
 
-    // Form submission event listener
+    //  submission event listener
     form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
+        event.preventDefault(); 
 
         const usernameEmail = document.getElementById('username-email').value;
         const password = document.getElementById('password').value;
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return; // Stop form submission
         }
 
-        // Check if all fields are filled out
+        // Checking  if all fields are filled out then 
         if (usernameEmail && password && role) {
             const user = {
                 usernameEmail,
